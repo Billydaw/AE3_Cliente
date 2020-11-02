@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtmll/DTD/xhtmll-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-l" />
+    <title>AE3</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="proyecto.js" language="javascript" type="text/javascript">
+    </script>
+</head>
+
+<body>
+
+    <div id="bloque1">
+    <h1>AE3 Proyecto JavaScript</h1>
+
+    <p>Se pide el desarrollo de una aplicación “asistente” para la recopilación de datos de un
+        usuario. Dicha aplicación debe ser un proyecto JavaScript gestionado con Node
+        Package Manager, con todos los datos necesarios para poder contactar con el autor,
+        tener claro qué hace la aplicación, cómo se llama la aplicación, la URL al repositorio,
+        qué versión de la aplicación es y, muy importante, el modelo de licencia.</p>
+
+        <p>Callback URL: <input type="text" id="mensaje" placeholder="URL" required></p>
+
+        <input type="button" id="enviar" value="Siguiente" disabled onclick="mostrar()">
+    </div>
+
+        <script>
+            let btn = document.getElementById("mensaje")
+            btn.addEventListener("keydown", function(event) {
+              if(event) {
+                document.getElementById("enviar").disabled = false
+              }
+            })
+          </script>
+
+        <div id="bloque2">
+        <p>Nombre: <input type="text" id="nombre"/></p>
+        <p>Apellidos: <input type="text" id="apellidos"/></p>
+        <input id="date" type="date">
+        <p>Dirección: <input type="text" id="direccion"/></p>
+        <p>Código Postal: <input type="number" id="cp"/></p>
+        <select id = "Provincias">
+            <option value="1">Valencia</option> 
+            <option value="2">Alicante</option> 
+            <option value="3">Castellón</option>
+        </select>
+        <p>Municipio: <input type="text" id="municipio" style="text-transform:uppercase;"/></p>
+
+        <input type="button" id="validar" value="Validar" onclick="validar()">
+        </div>
+
+        <div id="bloque3">
+            <input type="button" id="terminar" value="Terminar" onclick="terminar()">
+        </div>
+
+        <script>
+            function mostrar(){
+                document.getElementById('bloque1').style.display = 'none';
+                document.getElementById('bloque2').style.display = 'block';
+            }
+        </script>
+
+        <script>
+            function validar(){
+                
+                var nombre=document.getElementById("nombre").value;
+                var Apellidos=document.getElementById("apellidos").value;
+                var Fecha_Nac=document.getElementById("date").value;
+                var Direccion=document.getElementById("direccion").value;
+                var CP=document.getElementById("cp").value;
+                var provincias=document.getElementById("Provincias").value;
+                var municipio=document.getElementById("municipio").value;
+                if(nombre=="" || Apellidos=="" || Fecha_Nac=="" || Direccion=="" || CP=="" || provincias=="" || municipio=="" ){
+                    alert("Debes completar todos los campos");
+                
+                }else{
+                var opcion= confirm ("Has introducido los siguientes datos \n" + nombre +"\n" + Apellidos +"\n" + Fecha_Nac +"\n" + Direccion +"\n" + CP +"\n" + provincias +"\n" + municipio + "\n" + "¿Los datos que has introducido son correctos?");
+                if (opcion == true){
+
+                    document.getElementById('bloque2').style.display = 'none';
+                    document.getElementById('bloque3').style.display = 'block';
+
+                }else{
+
+                }
+                }
+                
+            }
+        </script>
+        
+        <script>
+            function terminar(){
+                var url=document.getElementById("mensaje").value;
+                window.location.href=url;
+            }
+        </script>
+</body>
+</html>

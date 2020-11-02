@@ -1,0 +1,19 @@
+{
+  "name": "ae3",
+  "version": "0.0.1",
+  "description": "fgh",
+  "main": "proyecto.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Billydaw/AE3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Billydaw/AE3/issues"
+  },
+  "homepage": "https://github.com/Billydaw/AE3#readme"
+}
